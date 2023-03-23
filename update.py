@@ -1,7 +1,7 @@
 import subprocess
 import os
 dir_ = os.path.abspath('.')
-folder = os.path.join(dir_, 'dist')
+folder = os.path.join(dir_, 'test')
 
 li = os.listdir(folder)
 

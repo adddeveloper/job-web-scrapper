@@ -6,38 +6,31 @@ from bs4 import BeautifulSoup
 
 filename = os.path.basename(__file__)
 
-url = 'https://www.silverorange.com/job/'
+url = 'https://www.sprypoint.com/pages/careers/current-openings/'
 driver = webdriver.Chrome()
 driver.get(url)
 time.sleep(5)
 
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
-divs = soup.find_all('div', class_='humi-job-board-posting')
-
-def clean(x):
-  nx = x.text.replace("\n", "")
-  nx = " ".join(nx.split())
-  return nx
+li = soup.find_all('li', class_='BambooHR-ATS-Jobs-Item')
 
 
 arr = []
-for div in divs:
+for l in li:
   arrone = {}
   # heading & anchor
-  a = div.find("a")
+
+  a = l.find("a")
   if a:
     
     arrone["job"] = a.text
 
     arrone["link"] = a['href']
-  # paragrahp
-  d = div.find("div", class_="humi-job-board-posting-details")
-  if d:
-    arrone["description"] = clean(d)
+
   if arrone != {}:
     arr.append(arrone)
-
+    
 print(len(arr))
 with open("data/"+filename.split('.')[0]+'.json', "w") as file:
     json.dump(arr, file)

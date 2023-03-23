@@ -35,7 +35,7 @@ for div in divs:
     span = p.find("span")
     span = span.text
     if span:
-        arrone["discription"]=(span)
+        arrone["description"]=(span)
   # anchor
   anchor = div.find("a", class_="wixui-button")
   if anchor:
