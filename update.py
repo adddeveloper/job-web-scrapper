@@ -5,8 +5,8 @@ folder = os.path.join(dir_, 'dist')
 
 li = os.listdir(folder)
 
-if not os.path.exists('/data'):
-    os.makedirs('/data')
+if not os.path.exists('data'):
+    os.makedirs('data')
 
 for i in li:
     filepath = os.path.join('data', i.split('.')[0]+'.json')
