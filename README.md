@@ -12,6 +12,6 @@ pip install selenium
 python update.py
 ```
 
-Update file runs all python files in the `dist` folder/directory.
+Update file runs all python files in the `dist` folder or directory.
 
-The python files create a json files that contain scrapped data to a folder/directory called `data`,
+The Python scripts generate JSON files that encapsulate scraped data within a designated folder or directory named `data`.
