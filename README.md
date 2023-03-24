@@ -1,5 +1,17 @@
 # job web scrapper
 
-In the "run python.txt" there is python dependencies you need to install
+**Download selenuim.**
 
-Run the "update.py" file which runs all the python files in the "/dist" folder which scrap certain websites for job posts and saves as json in the "/data" directory.
+```
+pip install selenium
+```
+
+**Run update file.**
+
+```
+python update.py
+```
+
+Update file runs all python files in the `dist` folder/directory.
+
+The python files create a json files that contain scrapped data to a folder/directory called `data`,
