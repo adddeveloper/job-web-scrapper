@@ -9,7 +9,7 @@ import unicodedata
 
 filename = os.path.basename(__file__)
 
-urls = [    'https://www.google.com/search?q=it+jobs&ibp=htl;jobs&sa=X&ved=2ahUKEwjj0t_og_P9AhXgFVkFHZMvAzAQutcGKAF6BAgKEAU&sxsrf=AJOqlzUSaKYRr4-4XMSomZ3q3BDCyvz-ZQ:1679608115626#htivrt=jobs&htidocid=6D6zNQ2RW58AAAAAAAAAAA%3D%3D&fpstate=tldetail',    'https://www.google.com/search?q=paytic+jobs&oq=paytic+jobs&aqs=chrome..69i57.1366j0j1&sourceid=chrome&ie=UTF-8&ibp=htl;jobs&sa=X&ved=2ahUKEwjqpLCn0J39AhXlD1kFHRpSAMcQkd0GegQIFRAB#fpstate=tldetail&htivrt=jobs&htiq=paytic+jobs&htidocid=O5m_KDAblCMAAAAAAAAAAA%3D%3D&sxsrf=AJOqlzUCzUUQ5S5cL7IaApyWCpY7VsgmVA:1676673710569']
+urls = ['https://www.google.com/search?q=it+jobs&ibp=htl;jobs&sa=X&ved=2ahUKEwjj0t_og_P9AhXgFVkFHZMvAzAQutcGKAF6BAgKEAU&sxsrf=AJOqlzUSaKYRr4-4XMSomZ3q3BDCyvz-ZQ:1679608115626#htivrt=jobs&htidocid=6D6zNQ2RW58AAAAAAAAAAA%3D%3D&fpstate=tldetail',    'https://www.google.com/search?q=paytic+jobs&oq=paytic+jobs&aqs=chrome..69i57.1366j0j1&sourceid=chrome&ie=UTF-8&ibp=htl;jobs&sa=X&ved=2ahUKEwjqpLCn0J39AhXlD1kFHRpSAMcQkd0GegQIFRAB#fpstate=tldetail&htivrt=jobs&htiq=paytic+jobs&htidocid=O5m_KDAblCMAAAAAAAAAAA%3D%3D&sxsrf=AJOqlzUCzUUQ5S5cL7IaApyWCpY7VsgmVA:1676673710569']
 
 driver = webdriver.Chrome()
 arr = []
