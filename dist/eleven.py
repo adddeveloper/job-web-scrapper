@@ -13,16 +13,21 @@ time.sleep(5)
 
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
-divs = soup.find_all('div', class_='faq-title')
+divs = soup.find_all("div", class_="faq-box")
 
 arr = []
 for div in divs:
     arrone = {}
-    # heading
-    job = div.text.strip()
+    h3 = div.find('div', class_='faq-title')
+    job = h3.text
+    ur = ''
+    anchor = div.find_all('a')
+    for a in anchor:
+        if a.text.lower() == 'apply':
+            ur = a['href']
     if job:
         arrone["job"] = job
-        arrone["link"] = url
+        arrone["link"] = ur
         arr.append(arrone)
 
 print(len(arr))
