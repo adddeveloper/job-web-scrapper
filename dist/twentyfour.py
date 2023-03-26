@@ -23,7 +23,6 @@ for t in tr:
   if a:
     arrone["job"] = a.text
     arrone["link"] = a['href']
-    arrone["location"] = t.find_all("td")[2].text
     
   if arrone != {}:
     arr.append(arrone)

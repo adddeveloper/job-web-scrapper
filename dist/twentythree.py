@@ -25,16 +25,6 @@ for t in tr:
         arrone['job'] = a.text.strip()
         arrone['link'] = 'https:' + a['href']
 
-    # job locations
-    location = t.find_all('td', {'class': ['column-2', 'column-3']})
-    if location:
-        arrone['location'] = [l.text.strip() for l in location]
-
-    # job application link
-    apply = t.find('a', href=lambda href: href and "mailto" in href)
-    if apply:
-        arrone['apply'] = apply['href'].replace('mailto:', '').replace('?Subject=', ' - ')
-
     if arrone != {}:
         arr.append(arrone)
 
