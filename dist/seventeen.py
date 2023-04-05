@@ -1,18 +1,12 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import json
 import os
+from urllib.parse import urljoin
 
 filename = os.path.basename(__file__)
 url = "https://www.upei.ca/hr/competitions?field_position_type_value=staff"
-
-options = Options()
-options.add_argument("--headless")
-service = Service("C:/webdrivers/chromedriver.exe")
-driver = webdriver.Chrome(service=service, options=options)
-
+driver = webdriver.Chrome()
 driver.get(url)
 html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")
@@ -23,7 +17,11 @@ for tr in table.find_all("tr")[1:]:
     job = tr.find("td", class_="views-field-title").find("a")
     if job:
         title = job.text.strip()
-        link = job["href"]
+        if(str(job['href']).split(':')[0] != 'https' and str(job['href']).split(':')[0] != 'http'):
+            ur = urljoin(url,job['href'])
+            link = ur
+        else:
+            link = job['href']
         arr.append({"job": title, "link": link})
 
 print(len(arr))

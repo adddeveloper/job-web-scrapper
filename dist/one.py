@@ -6,6 +6,18 @@ from bs4 import BeautifulSoup
 
 filename = os.path.basename(__file__)
 
+def save_deleted_data(existing_data, new_data, deleted_data_file):
+    # Compare the existing data and new data, creating a list of deleted_data.
+    # If a job in existing_data is not present in the new_data, it will be added to the deleted_data list.
+    deleted_data = [job for job in existing_data if job not in new_data]
+    
+    # If there are any items in the deleted_data list, save them to the deleted_data_file.
+    if deleted_data:
+        with open(deleted_data_file, "w") as file:
+            json.dump(deleted_data, file, indent=2)
+
+
+
 url = 'https://workpei.ca/jobs/?job_pei_sector=7326'
 driver = webdriver.Chrome()
 driver.get(url)
@@ -30,6 +42,18 @@ for l in li:
     arr.append(arrone)
     
 print(len(arr))
+
+existing_data_file = "data/{}.json".format(filename)
+deleted_data_file = "deleteddata/{}.json".format(filename)
+
+if os.path.exists(existing_data_file):
+    with open(existing_data_file, "r") as file:
+        existing_data = json.load(file)
+else:
+    existing_data = []
+
+save_deleted_data(existing_data, arr, deleted_data_file)
+
 with open("data/"+filename.split('.')[0]+'.json', "w") as file:
     json.dump(arr, file)
 
