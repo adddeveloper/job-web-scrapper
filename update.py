@@ -3,7 +3,7 @@ import os
 dir_ = os.path.abspath('.')
 
 
-folder = os.path.join(dir_, 'update')
+folder = os.path.join(dir_, 'dist')
 li = os.listdir(folder)
 if not os.path.exists('data'):
     os.makedirs('data')
